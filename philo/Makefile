@@ -12,7 +12,9 @@
 
 NAME = philo
 CC = gcc
-CFLAGS = -Wall -Werror -Wextra -fsanitize=thread -g -pthread
+CFLAGS = -Wall -Werror -Wextra -g -pthread
+#comment previous line and uncomment next line for sanitizer
+#CFLAGS = -Wall -Werror -Wextra -fsanitize=thread -g -pthread
 OBJ_DIR = objects
 SRC_DIR = src
 SRCS = main.c \

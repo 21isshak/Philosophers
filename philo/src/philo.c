@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philo.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iskaraag <iskaraag@student.42.fr>          +#+  +:+       +#+        */
+/*   By: iskaraag <iskaraag@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/13 16:08:00 by iskaraag          #+#    #+#             */
-/*   Updated: 2024/11/05 18:26:48 by iskaraag         ###   ########.fr       */
+/*   Updated: 2024/11/06 16:53:52 by iskaraag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void	philosopher_eat(t_philosopher *philo)
 	pthread_mutex_unlock(philo->left_fork);
 	pthread_mutex_unlock(philo->right_fork);
 }
-
+//comment previous functions and uncomment next functions for colored output
 /*
 void	philosopher_think(t_philosopher *philo)
 {

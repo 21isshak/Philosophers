@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iskaraag <iskaraag@student.42.fr>          +#+  +:+       +#+        */
+/*   By: iskaraag <iskaraag@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/13 16:07:50 by iskaraag          #+#    #+#             */
-/*   Updated: 2024/11/05 18:28:30 by iskaraag         ###   ########.fr       */
+/*   Updated: 2024/11/06 16:53:37 by iskaraag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,14 @@ void	printer(char *str, t_philosopher *philo, int id)
 void	print_input(void)
 {
 	printf("\033[1m\033[31mWRONG INPUT\033[0m\n");
-	printf("\033[1m\033[31mWARNING:\033[0m time_to_eat +");
-	printf(" time_to_sleep < time_to_die\n");
 	printf("\033[1m\033[32mUsage:\033[0m ./philo <number_of_p> <time_to_die>");
 	printf(" <time_to_eat> <time_to_sleep>");
 	printf(" <[number_of_times_each_philosopher_must_eat]>\n");
+	printf("\033[1m\033[31mWARNING:\033[0m \033[1;33m1)\033[0mtime_to_eat +");
+	printf(" time_to_sleep < time_to_die\n");
+	printf("\t \033[1;33m2)\033[0mnumber_of_p <= 200\n");
+	printf("\t \033[1;33m3)\033[0mtime_to_die ||");
+	printf(" time_to_eat || time_to_sleep < INT_MAX\n");
 	printf("\033[1m\033[34mExample1:\033[0m ./philo 4 800 200 200\n");
 	printf("\033[1m\033[34mExample2:\033[0m ./philo 4 800 200 200 4\n");
 }
@@ -45,7 +48,7 @@ void	one_philo(char **argv)
 	printf("%ld", ft_atoi(argv[2]));
 	printf("%ld \033[0;31mdied\033[0m\n", ft_atoi(argv[1]));
 }
-
+//comment previous function and uncomment next function for colored output
 /*
 void	one_philo(char **argv)
 {

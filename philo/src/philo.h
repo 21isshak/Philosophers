@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philo.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iskaraag <iskaraag@student.42.fr>          +#+  +:+       +#+        */
+/*   By: iskaraag <iskaraag@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/13 16:08:08 by iskaraag          #+#    #+#             */
-/*   Updated: 2024/11/05 18:20:33 by iskaraag         ###   ########.fr       */
+/*   Updated: 2024/11/06 17:01:21 by iskaraag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,8 @@ typedef struct simulation
 }	t_simulation;
 
 //main.c
+void	printer(char *str, t_philosopher *philo, int id);
+void	print_input(void);
 void	one_philo(char **argv);
 int		check_input(int argc, char **argv);
 
@@ -64,15 +66,9 @@ void	init_simulation(t_simulation *sim, t_philosopher *philos,
 			pthread_mutex_t *forks, char **argv);
 
 //starting.c
-int		dead_checker(t_philosopher *philo, long time_to_die);
 int		all_philos_ate(t_philosopher *philos);
-int		check_dead(t_philosopher *philos);
 void	*monitor_p(void *p);
 int		start_p(t_simulation *sim, pthread_mutex_t *forks);
-
-//philo_utils.c
-long	current_time_ms(void);
-long	time_since_start(t_simulation *sim);
 
 //philo.c
 void	philosopher_think(t_philosopher *philo);
@@ -81,13 +77,17 @@ void	philosopher_eat(t_philosopher *philo);
 int		dead_flag_checker(t_philosopher *philo);
 void	*routine(void *p);
 
-//utils.c
-void	printer(char *str, t_philosopher *philo, int id);
+//philo_utils.c
+long	current_time_ms(void);
+long	time_since_start(t_simulation *sim);
 int		uslep(long milliseconds);
 void	destroyer(const char *str, t_simulation *sim, pthread_mutex_t *forks);
+
+//utils.c
 size_t	ft_strlen(const char *s);
 long	ft_atoi(char *str);
-void	print_input(void);
 int		check_digit(int argc, char **argv);
+int		dead_checker(t_philosopher *philo, long time_to_die);
+int		check_dead(t_philosopher *philos);
 
 #endif

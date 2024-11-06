@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philo_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iskaraag <iskaraag@student.42.fr>          +#+  +:+       +#+        */
+/*   By: iskaraag <iskaraag@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/16 14:40:16 by iskaraag          #+#    #+#             */
-/*   Updated: 2024/11/05 18:35:39 by iskaraag         ###   ########.fr       */
+/*   Updated: 2024/11/06 16:51:58 by iskaraag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,4 +30,34 @@ long	time_since_start(t_simulation *sim)
 
 	time = current_time_ms() - sim->p->start_time;
 	return (time);
+}
+
+int	uslep(long milliseconds)
+{
+	long	start;
+
+	start = current_time_ms();
+	while ((current_time_ms() - start) < milliseconds)
+		usleep(500);
+	return (0);
+}
+
+void	destroyer(const char *str, t_simulation *sim, pthread_mutex_t *forks)
+{
+	int	i;
+
+	i = 0;
+	if (str)
+	{
+		printf("%s\n", str);
+		return ;
+	}
+	pthread_mutex_destroy(&sim->print_lock);
+	pthread_mutex_destroy(&sim->meal_lock);
+	pthread_mutex_destroy(&sim->dead_lock);
+	while (i < sim->p[0].n_p)
+	{
+		pthread_mutex_destroy(&forks[i]);
+		i++;
+	}
 }
