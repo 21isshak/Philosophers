@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: iskaraag <iskaraag@student.42.fr>          +#+  +:+       +#+         #
+#    By: iskaraag <iskaraag@student.42warsaw.pl>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/13 16:08:33 by iskaraag          #+#    #+#              #
-#    Updated: 2024/11/05 17:11:28 by iskaraag         ###   ########.fr        #
+#    Updated: 2024/11/06 19:13:20 by iskaraag         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 

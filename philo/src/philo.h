@@ -6,7 +6,7 @@
 /*   By: iskaraag <iskaraag@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/13 16:08:08 by iskaraag          #+#    #+#             */
-/*   Updated: 2024/11/06 17:01:21 by iskaraag         ###   ########.fr       */
+/*   Updated: 2024/11/06 19:35:35 by iskaraag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,8 +73,8 @@ int		start_p(t_simulation *sim, pthread_mutex_t *forks);
 //philo.c
 void	philosopher_think(t_philosopher *philo);
 void	philosopher_sleep(t_philosopher *philo);
+void	take_fork(t_philosopher *philo, int lock_order_flag);
 void	philosopher_eat(t_philosopher *philo);
-int		dead_flag_checker(t_philosopher *philo);
 void	*routine(void *p);
 
 //philo_utils.c
@@ -82,6 +82,7 @@ long	current_time_ms(void);
 long	time_since_start(t_simulation *sim);
 int		uslep(long milliseconds);
 void	destroyer(const char *str, t_simulation *sim, pthread_mutex_t *forks);
+int		dead_flag_checker(t_philosopher *philo);
 
 //utils.c
 size_t	ft_strlen(const char *s);

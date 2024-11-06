@@ -6,7 +6,7 @@
 /*   By: iskaraag <iskaraag@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/13 16:08:14 by iskaraag          #+#    #+#             */
-/*   Updated: 2024/11/06 16:55:39 by iskaraag         ###   ########.fr       */
+/*   Updated: 2024/11/06 19:29:59 by iskaraag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,12 +81,21 @@ int	dead_checker(t_philosopher *philo, long time_to_die)
 
 int	check_dead(t_philosopher *philos)
 {
-	int	i;
+	int		i;
+	int		eating;
+	long	time_s_l_meal;
+	long	buffer_period;
 
+	buffer_period = 5;
 	i = 0;
 	while (i < philos[0].n_p)
 	{
-		if (dead_checker(&philos[i], philos[i].time_to_die))
+		pthread_mutex_lock(philos[i].meal_lock);
+		time_s_l_meal = current_time_ms() - philos[i].last_meal_time;
+		eating = philos[i].eat;
+		pthread_mutex_unlock(philos[i].meal_lock);
+		if (time_s_l_meal >= (long)(philos[i].time_to_die + buffer_period)
+			&& !eating)
 		{
 			printer("died", &philos[i], philos[i].id);
 			pthread_mutex_lock(philos[0].dead_lock);

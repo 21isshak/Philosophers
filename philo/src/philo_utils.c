@@ -6,7 +6,7 @@
 /*   By: iskaraag <iskaraag@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/16 14:40:16 by iskaraag          #+#    #+#             */
-/*   Updated: 2024/11/06 16:51:58 by iskaraag         ###   ########.fr       */
+/*   Updated: 2024/11/06 19:35:06 by iskaraag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,10 +35,14 @@ long	time_since_start(t_simulation *sim)
 int	uslep(long milliseconds)
 {
 	long	start;
+	long	target;
 
 	start = current_time_ms();
-	while ((current_time_ms() - start) < milliseconds)
-		usleep(500);
+	target = start + milliseconds;
+	while (current_time_ms() < target)
+	{
+		usleep(0);
+	}
 	return (0);
 }
 
@@ -60,4 +64,16 @@ void	destroyer(const char *str, t_simulation *sim, pthread_mutex_t *forks)
 		pthread_mutex_destroy(&forks[i]);
 		i++;
 	}
+}
+
+int	dead_flag_checker(t_philosopher *philo)
+{
+	pthread_mutex_lock(philo->dead_lock);
+	if (*philo->dead == 1)
+	{
+		pthread_mutex_unlock(philo->dead_lock);
+		return (1);
+	}
+	pthread_mutex_unlock(philo->dead_lock);
+	return (0);
 }
