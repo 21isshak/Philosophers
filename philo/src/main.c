@@ -43,10 +43,10 @@ void	one_philo(char **argv)
 	long int	a;
 
 	a = argv[2][ft_strlen(argv[2]) - 1] - '0';
-	printf("%ld 1 \033[0;33mhas taken a fork\033[0m\n", a);
+	printf("%ld 1 has taken a fork\n", a);
 	uslep(ft_atoi(argv[2]));
 	printf("%ld", ft_atoi(argv[2]));
-	printf("%ld \033[0;31mdied\033[0m\n", ft_atoi(argv[1]));
+	printf(" %ld died\n", ft_atoi(argv[1]));
 }
 //comment previous function and uncomment next function for colored output
 /*
