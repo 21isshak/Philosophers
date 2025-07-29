@@ -27,5 +27,5 @@ make
 ```
 Example;
 ```bash  
-./philo ./philo 4 800 200 200 3
+./philo 4 800 200 200 3
 ```
