@@ -17,6 +17,9 @@ git clone https://github.com/21isshak/Philosophers.git
 cd Philosophers
 ```
 ```bash  
+cd philo
+```
+```bash  
 make
 ```
 ```bash  
