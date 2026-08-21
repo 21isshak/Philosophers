@@ -2,24 +2,17 @@
 
 This project has been created as part of 42 core cirriculm by iskaraag
 
-
 Dining philosophers problem simulation.
-
-
-Passed from "https://github.com/MichelleJiam/LazyPhilosophersTester.git" and "https://github.com/newlinuxbot/Philosphers-42Project-Tester.git" testers. (Thanks to MichelleJiam and newlinuxbot)
 
 ## Installation
 
 How to install and run?
 
 ```bash
-git clone https://github.com/21isshak/42_Warsaw.git
+git clone https://github.com/21isshak/Philosophers.git
 ```
 ```bash  
 cd 42_Warsaw/Philosophers
-```
-```bash  
-cd philo
 ```
 ```bash  
 make
