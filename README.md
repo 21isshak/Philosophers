@@ -12,7 +12,7 @@ How to install and run?
 git clone https://github.com/21isshak/Philosophers.git
 ```
 ```bash  
-cd 42_Warsaw/Philosophers
+cd Philosophers
 ```
 ```bash  
 make
