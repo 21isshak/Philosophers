@@ -1,6 +1,6 @@
 # Philosophers
 
-This project has been created as part of 42 core cirriculm by iskaraag
+This project has been created as part of the 42 curriculum by iskaraag.
 
 Dining philosophers problem simulation.
 
